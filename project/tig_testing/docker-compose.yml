@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  # MQTT Broker "Mosquitto" by Esclipse
+  mosquitto:
+    image: eclipse-mosquitto
+
+  # Time Series DB
+  influxdb:
+    image: influxdb
+    environment:
+      INFLUXDB_DB: sensors
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: admin
+    ports:
+      - "8086:8086" # Only for testing
+    volumes:
+      - influx-data:/var/lib/influxdb
+
+  # Server Agent for collecting and storing data
+  telegraf:
+    build: .
+    depends_on:
+      - influxdb
+      # - mosquitto
+
+  # Low-code programming tool for event-driven applications
+  node-red:
+    image: nodered/node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered-data:/data
+
+  # Data Visualization
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+  # # DB Exploration
+  # choronograf:
+  #   image: chronograf
+  #   ports:
+  #     - "8888:8888"
+  #   depends_on:
+  #     - influxdb
+  #   environment:
+  #     INFLUXDB_URL: http://influxdb:8086
+
+volumes:
+  influx-data:
+  nodered-data:
+  grafana-data:
+# TODO: Research on MQTT Topics & Node-RED connection (useful names for sensors like sensors/austrasse/firstfloor/door)
+# Also we should find out / fix the data format when publishing via MQTT

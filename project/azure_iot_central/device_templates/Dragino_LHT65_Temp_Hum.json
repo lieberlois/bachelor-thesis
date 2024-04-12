@@ -1,0 +1,93 @@
+{
+  "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_5e0:1",
+  "@type": "CapabilityModel",
+  "implements": [
+    {
+      "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_5e0:hoy3hmjfe:1",
+      "@type": "InterfaceInstance",
+      "displayName": {
+        "en": "Interface"
+      },
+      "name": "Dragino_LHT65_Temp_Hum_7jy",
+      "schema": {
+        "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:1",
+        "@type": "Interface",
+        "displayName": {
+          "en": "Interface"
+        },
+        "contents": [
+          {
+            "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:BatV:1",
+            "@type": "Telemetry",
+            "comment": "Battery State",
+            "displayName": {
+              "en": "BatV"
+            },
+            "name": "BatV",
+            "displayUnit": {
+              "en": "Volt"
+            },
+            "schema": "double"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:Hum_SHT:1",
+            "@type": [
+              "Telemetry",
+              "SemanticType/Humidity"
+            ],
+            "comment": "Humidity measured by device",
+            "displayName": {
+              "en": "Hum_SHT"
+            },
+            "name": "Hum_SHT",
+            "schema": "double",
+            "unit": "percent"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:TempC_DS:1",
+            "@type": [
+              "Telemetry",
+              "SemanticType/Temperature"
+            ],
+            "comment": "Temperature measured by probe",
+            "displayName": {
+              "en": "TempC_DS"
+            },
+            "name": "TempC_DS",
+            "schema": "double",
+            "unit": "celsius"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:TempC_SHT:1",
+            "@type": [
+              "Telemetry",
+              "SemanticType/Temperature"
+            ],
+            "comment": "Temperature measured by device",
+            "displayName": {
+              "en": "TempC_SHT"
+            },
+            "name": "TempC_SHT",
+            "schema": "double",
+            "unit": "celsius"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LHT65_Temp_Hum_7jy:Ext_sensor:1",
+            "@type": "Telemetry",
+            "displayName": {
+              "en": "Ext_sensor"
+            },
+            "name": "Ext_sensor",
+            "schema": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "displayName": {
+    "en": "Dragino_LHT65_Temp_Hum"
+  },
+  "@context": [
+    "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
+}

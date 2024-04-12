@@ -1,0 +1,100 @@
+{
+  "@id": "urn:xitasoIot:Dragino_LDS01_Door_5lx:1",
+  "@type": "CapabilityModel",
+  "implements": [
+    {
+      "@id": "urn:xitasoIot:Dragino_LDS01_Door_5lx:v__79dgxl:1",
+      "@type": "InterfaceInstance",
+      "displayName": {
+        "en": "Interface"
+      },
+      "name": "Dragino_LDS01_Door_5p4",
+      "schema": {
+        "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:1",
+        "@type": "Interface",
+        "displayName": {
+          "en": "Interface"
+        },
+        "contents": [
+          {
+            "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:BatV:1",
+            "@type": "Telemetry",
+            "comment": "Battery State",
+            "displayName": {
+              "en": "BatV"
+            },
+            "name": "BatV",
+            "displayUnit": {
+              "en": "Volt"
+            },
+            "schema": "double"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Door_Open_State:1",
+            "@type": [
+              "Telemetry",
+              "SemanticType/State"
+            ],
+            "comment": "Is door open?",
+            "displayName": {
+              "en": "Door_Open_State"
+            },
+            "name": "Door_Open_State",
+            "displayUnit": {
+              "en": "Open"
+            },
+            "schema": {
+              "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Door_Open_State:ydzcc8gtf:1",
+              "@type": "Enum",
+              "valueSchema": "string",
+              "enumValues": [
+                {
+                  "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Door_Open_State:ydzcc8gtf:Open:1",
+                  "@type": "EnumValue",
+                  "displayName": {
+                    "en": "Open"
+                  },
+                  "enumValue": "true",
+                  "name": "Open"
+                },
+                {
+                  "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Door_Open_State:ydzcc8gtf:Closed:1",
+                  "@type": "EnumValue",
+                  "displayName": {
+                    "en": "Closed"
+                  },
+                  "enumValue": "false",
+                  "name": "Closed"
+                }
+              ]
+            }
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Open_Times:1",
+            "@type": "Telemetry",
+            "displayName": {
+              "en": "Open_Times"
+            },
+            "name": "Open_Times",
+            "schema": "integer"
+          },
+          {
+            "@id": "urn:xitasoIot:Dragino_LDS01_Door_5p4:Last_Open_Dur:1",
+            "@type": "Telemetry",
+            "displayName": {
+              "en": "Last_Open_Dur"
+            },
+            "name": "Last_Open_Dur",
+            "schema": "integer"
+          }
+        ]
+      }
+    }
+  ],
+  "displayName": {
+    "en": "Dragino_LDS01_Door"
+  },
+  "@context": [
+    "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
+}
